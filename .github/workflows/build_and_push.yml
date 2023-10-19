@@ -29,5 +29,8 @@ jobs:
           # cache-to: type=registry,url=https://your-dockerhub-cache-server.com/v2/,mode=max
           # github.workspace represent last context dir
           file: ${{ github.workspace }}/Dockerfile
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
 
 
