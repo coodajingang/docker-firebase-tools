@@ -2,11 +2,9 @@ FROM node:14.5
 
 ADD . /src
 WORKDIR /src
-# Install OpenJDK-11
+
 RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list
-RUN apt-get update && \
-    apt-get install -y openjdk-11-jre-headless && \
-    apt-get clean
+RUN apt-get update && apt-get install -y openjdk-17-jre-headless
 
 # Install dependencies for cloud functions
 #WORKDIR /src/functions
