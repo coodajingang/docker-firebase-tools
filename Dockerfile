@@ -24,3 +24,6 @@ WORKDIR /src
 RUN npm i -g firebase-tools
 RUN firebase --version
 EXPOSE  4400 4500 5000 5001 8001 8080 8085 9000 9099
+
+## DONOT USE THIS  
+## NOT WORK

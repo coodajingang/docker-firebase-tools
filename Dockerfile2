@@ -30,6 +30,9 @@ USER ${USER}
 
 WORKDIR /home/${USER}
 
+RUN firebase setup:emulators:database 
+RUN firebase setup:emulators:pubsub
+RUN firebase setup:emulators:storage
 RUN firebase setup:emulators:firestore
 RUN firebase setup:emulators:ui
 
@@ -67,4 +70,4 @@ HEALTHCHECK --interval=20s --timeout=15s \
 RUN firebase --version
 ENTRYPOINT ["firebase"]
 
-CMD ["emulators:start"] &
+CMD ["emulators:start"]
