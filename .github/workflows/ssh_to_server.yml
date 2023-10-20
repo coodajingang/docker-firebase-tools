@@ -1,0 +1,27 @@
+name: Login to Machine with Command Line
+
+on: [pull_request]
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up SSH key
+      run: |
+        ssh-keygen -t rsa -b 4096 -C "dtx@example.com"
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa
+
+    - name: Install SSH client
+      run: apt-get update && apt-get install -y openssh-client
+
+    - name: Login to machine with command line
+      env:
+        USERNAME: your_username
+        PASSWORD: your_password
+      run: |
+        echo $PASSWORD | sudo -S ssh $USERNAME@your_machine_ip_address

@@ -1,5 +1,6 @@
 FROM node:16-alpine
 
+ENV SHELL /bin/bash
 ADD . /src
 WORKDIR /src
 
