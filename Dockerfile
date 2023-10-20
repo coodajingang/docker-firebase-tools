@@ -6,6 +6,7 @@ WORKDIR /src
 
 #RUN echo 'deb http://ftp.debian.org/debian stretch-backports main' | tee /etc/apt/sources.list.d/stretch-backports.list
 #RUN apt-get install -y openjdk-17-jre-headless
+RUN apk update
 RUN apk add --no-cache openjdk-17-jre
 # Install dependencies for cloud functions
 #WORKDIR /src/functions

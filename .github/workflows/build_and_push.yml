@@ -14,9 +14,9 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v2
       - name: Login to Docker Hub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/docker-firebase-tools:latest
           # cache-to: type=registry,url=https://your-dockerhub-cache-server.com/v2/,mode=max
           # github.workspace represent last context dir
-          file: ${{ github.workspace }}/Dockerfile
+          file: ${{ github.workspace }}/Dockerfile2
       # - name: Setup tmate session
       #   if: ${{ failure() }}
       #   uses: mxschmitt/action-tmate@v3
